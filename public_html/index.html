@@ -7,11 +7,26 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     </head>
     <body ng-controller="StoreController as gemStore">
-        <div ng-repeat="product in gemStore.products | orderBy:'-price'">
-            <h1>{{product.name | uppercase}}</h1>
-            <h2>{{product.price | currency}}</h2>
-            <p>{{product.description | limitTo:10}}</p>
-            <button ng-show="product.canPurchase">Add to Basket</button>
+        <div class="container-fluid">
+            <div class="row">
+                <h1 class="text-center">The Angular GemStore</h1>
+                <div ng-repeat="product in gemStore.products | orderBy:'-price'">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h3 class="text-center">{{product.name | uppercase}}</h3>
+                        <h4 class="text-center">{{product.price | currency}}</h4>
+                        <p class="text-center">{{product.description | limitTo:10}}</p>
+                        <button ng-show="product.canPurchase">Add to Basket</button>
+                        <!-- Image Gallery  -->
+                        <div class="col-xs-6 col-xs-offset-3" ng-show="{{product.images}}">
+                            <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" />
+                            <br />
+                            <div class="small-image center-block thumbnail col-xs-4" ng-repeat="image in product.images">
+                                <img ng-src="{{image}}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <script type="text/javascript" src="js/libs/angular.js/angular.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
