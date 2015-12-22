@@ -1,1 +1,4 @@
 .DS_Store
+*.properties
+/nbproject
+/nbproject/project.xml
