@@ -6,11 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     </head>
-    <body>
-        <div ng-controller="StoreController as gemStore">
+    <body ng-controller="StoreController as gemStore">
+        <div ng-hide="gemStore.product.soldOut">
             <h1>{{gemStore.product.name}}</h1>
             <h2>£{{gemStore.product.price}}</h2>
             <p>{{gemStore.product.description}}</p>
+            <button ng-show="gemStore.product.canPurchase">Add to Basket</button>
         </div>
         <script type="text/javascript" src="js/libs/angular.js/angular.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
