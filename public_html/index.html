@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     </head>
     <body ng-controller="StoreController as gemStore">
-        <div ng-repeat="product in gemStore.products">
-            <h1>{{product.name}}</h1>
-            <h2>£{{product.price}}</h2>
-            <p>{{product.description}}</p>
+        <div ng-repeat="product in gemStore.products | orderBy:'-price'">
+            <h1>{{product.name | uppercase}}</h1>
+            <h2>{{product.price | currency}}</h2>
+            <p>{{product.description | limitTo:10}}</p>
             <button ng-show="product.canPurchase">Add to Basket</button>
         </div>
         <script type="text/javascript" src="js/libs/angular.js/angular.js"></script>
