@@ -1,4 +1,4 @@
-(function(){
+(function() {
     
     var app = angular.module('gemStore',[]);
     
@@ -18,11 +18,20 @@
         };
     });
     
-    app.controller('GalleryController', function(){
+    app.controller('GalleryController', function() {
         this.current = 0;
 
-        this.setCurrent = function(newGallery){
+        this.setCurrent = function(newGallery) {
             this.current = newGallery || 0;
+        };
+    });
+    
+    app.controller('ReviewController', function() {
+        this.review = {};
+        
+        this.addReview = function(product) {
+            product.reviews.push(this.review);
+            this.review = {};
         };
     });
     
