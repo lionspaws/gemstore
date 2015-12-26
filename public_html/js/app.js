@@ -38,8 +38,15 @@
     
     app.directive('productTitle', function(){
         return {
-            restrict: 'E',
+            restrict: 'E',  // element
             templateUrl: 'product-title.html'
+        };
+    });
+    
+    app.directive('storeTitle', function(){
+        return {
+            restrict: 'A',  // attribute
+            templateUrl: 'store-title.html'
         };
     });
     

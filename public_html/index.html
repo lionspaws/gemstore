@@ -17,7 +17,7 @@
     <body ng-controller="StoreController as gemStore">
         <div class="container-fluid">
             <div class="row">
-                <h1 class="text-center">Ye Olde Angular JemStore</h1>
+                <h1 class="text-center" store-title></h1>
                 <div ng-repeat="product in gemStore.products | orderBy:'-price'">
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class="row">
