@@ -21,7 +21,7 @@
                 <div ng-repeat="product in gemStore.products | orderBy:'-price'">
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class="row">
-                            <h3 class="text-center" ng-include="'product-title.html'"></h3>
+                            <product-title></product-title>
                             <button ng-show="product.canPurchase">Add to Basket</button>
                         </div>
                         <div class="row">
