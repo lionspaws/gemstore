@@ -5,6 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <style>
+            .ng-invalid.ng-dirty {
+                border-color: #FA787E;
+            }
+            .ng-valid.ng-dirty {
+                border-color: #78FA89;
+            }
+        </style>
     </head>
     <body ng-controller="StoreController as gemStore">
         <div class="container-fluid">
@@ -55,7 +63,7 @@
                                         {{review.body}}
                                         <cite>by {{review.author}}</cite>
                                     </blockquote>
-                                    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)" novalidate>
+                                    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewFrom.$valid && reviewCtrl.addReview(product)" novalidate>
                                         <blockquote>
                                             <b>Stars: {{reviewCtrl.review.stars}}</b>
                                             {{reviewCtrl.review.body}}
@@ -67,6 +75,7 @@
                                         <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short review of this gem..." required></textarea>
                                         <label>by:</label>
                                         <input class="form-control" type="email" ng-model="reviewCtrl.review.author" placeholder="person@email.com" required />
+                                        <div> reviewForm is {{reviewForm.$valid}}</div>
                                         <input class="btn btn-block" type="submit" value="Submit" />
                                     </form>
                                 </div>
