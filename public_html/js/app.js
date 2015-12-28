@@ -2,9 +2,15 @@
     
     var app = angular.module('gemStore',['gemStore-products']);
     
-    app.controller('StoreController', function() {
-        this.products = gems;
-    });
+    app.controller('StoreController', ['$http', function($http) {
+        var store = this;
+        
+        store.products = [];
+        
+        $http.get('js/products.json').success(function(data){
+            store.products = data;
+        });
+    }]);
     
     app.controller('PanelController', function(){
         this.panel = 1;
@@ -44,7 +50,7 @@
             templateUrl: 'store-title.html'
         };
     });
-    
+    /*
     var gems = [
         {
             name: 'Jupiter Gem',
@@ -97,5 +103,5 @@
             ]
         }
     ];
-    
+    */
 })();
