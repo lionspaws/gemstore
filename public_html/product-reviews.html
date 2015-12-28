@@ -1,0 +1,20 @@
+<h4>Reviews</h4>
+<blockquote ng-repeat="review in product.reviews">
+    <b>Stars: {{review.stars}}</b>
+    {{review.body}}
+    <cite>by {{review.author}} on {{review.createdOn| date}}</cite>
+</blockquote>
+<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+    <blockquote>
+        <b>Stars: {{reviewCtrl.review.stars}}</b>
+        {{reviewCtrl.review.body}}
+        <cite>by {{reviewCtrl.review.author}}</cite>
+    </blockquote>
+    <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
+        <option value="">Rate the Gem</option>
+    </select>
+    <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short review of this gem..." required></textarea>
+    <label>by:</label>
+    <input class="form-control" type="email" ng-model="reviewCtrl.review.author" placeholder="person@email.com" required />
+    <input class="btn btn-block" type="submit" value="Submit" />
+</form>

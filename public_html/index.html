@@ -26,13 +26,7 @@
                         </div>
                         <div class="row">
                             <!-- Image Gallery  -->
-                            <div class="col-xs-8 col-xs-offset-2" ng-show="product.images.length" ng-controller="GalleryController as gallery">
-                                <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[gallery.current]}}" />
-                                <br />
-                                <div class="thumbnail col-xs-4" ng-repeat="image in product.images">
-                                    <img ng-src="{{image}}" />
-                                </div>
-                            </div>
+                            <product-gallery></product-gallery>
                         </div>
                         <div class="row">
                             <product-panels ng-controller="PanelController as panel"></product-panels>
