@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Jupiter Gem",
+        "price": 2.99,
+        "description": "Shiny gem, that reminded it's discoverer, Lord Gemsworth, of the striking planet Jupiter.",
+        "sides": 12,
+        "colour": "Mauve",
+        "rarity": "Common",
+        "shininess": 3,
+        "images": [
+            "img/gem-04.gif",
+            "img/gem-05.gif",
+            "img/gem-06.gif"
+        ],
+        "reviews": [
+            {
+                "stars": 5,
+                "body": "I love this gem!",
+                "author": "alice@email.com"
+            },
+            {
+                "stars": 1,
+                "body": "It broke really quickly",
+                "author": "bob@email.com"
+            }
+        ]
+    },
+    {
+        "name": "Titan Gem",
+        "price": 5.99,
+        "description": "Found by Lord Gemsworth in the early 12th Century, this gem is one of a kind, with no others like it having yet been discovered!",
+        "sides": 5,
+        "colour": "Opalescent",
+        "rarity": "Extremely",
+        "shininess": 5,
+        "images": [
+            "img/gem-07.gif",
+            "img/gem-08.gif",
+            "img/gem-09.gif"
+        ],
+        "reviews": [
+            {
+                "stars": 3,
+                "body": "Not bad...",
+                "author": "charlie@email.com"
+            }
+        ]
+    }
+]
