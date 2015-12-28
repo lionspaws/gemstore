@@ -6,15 +6,15 @@
         this.products = gems;
     });
     
-    app.controller('PanelController', function() {
-        this.tab = 1;
-        
-        this.selectTab = function(setTab) {
-            this.tab = setTab;
+    app.controller('PanelController', function(){
+        this.panel = 1;
+
+        this.selectPanel = function(setPanel) {
+            this.panel = setPanel;
         };
-        
-        this.isSelected = function(checkTab) {
-            return this.tab === checkTab;
+
+        this.isSelected = function(checkPanel) {
+            return this.panel === checkPanel;
         };
     });
     
@@ -50,12 +50,57 @@
         };
     });
     
+    app.directive('productPanels', function(){
+        return {
+            restrict: 'E',
+            templateUrl: 'product-panels.html',
+            /*
+            controller: function(){
+                this.panel = 1;
+
+                this.selectPanel = function(setPanel) {
+                    this.panel = setPanel;
+                };
+
+                this.isSelected = function(checkPanel) {
+                    return this.panel === checkPanel;
+                };
+            },
+            controllerAs: "panel"
+            */
+        };
+    });
+    
+    app.directive('productDescription', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'product-description.html'
+        };
+    });
+
+    app.directive('productReviews', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'product-reviews.html'
+        };
+    });
+
+    app.directive('productSpecification', function() {
+        return {
+            restrict: 'E',
+            templateUrl: "product-specification.html"
+        };
+    });
+    
     var gems = [
         {
-            name: 'Dodecahedron',
+            name: 'Jupiter Gem',
             price: 2.99,
-            description: 'Shiny',
+            description: 'Shiny gem, that reminded it\'s discoverer, Lord Gemsworth, of the striking planet Jupiter.',
             sides: '12',
+            colour: 'Mauve',
+            rarity: 'Common',
+            shininess: '3',
             images: [
                 'img/gem-04.gif',
                 'img/gem-05.gif',
@@ -65,20 +110,25 @@
                 {
                     stars: 5,
                     body: "I love this gem!",
-                    author: "alice@email.com"
+                    author: "alice@email.com",
+                    createdOn: Date.now()
                 },
                 {
                     stars: 1,
                     body: "It broke really quickly",
-                    author: "bob@email.com"
+                    author: "bob@email.com",
+                    createdOn: Date.now()
                 }
             ]
         },
         {
-            name: 'Pentagonal Gem',
+            name: 'Titan Gem',
             price: 5.99,
+            description: 'Found by Lord Gemsworth in the early 12th Century, this gem is one of a kind, with no others like it having yet been discovered!',
             sides: '5',
-            description: 'Sanguine',
+            colour: 'Opalescent',
+            rarity: 'Extremely',
+            shininess: '5',
             images: [
                 'img/gem-07.gif',
                 'img/gem-08.gif',
@@ -88,10 +138,11 @@
                 {
                     stars: 3,
                     body: "Not bad...",
-                    author: "charlie@email.com"
+                    author: "charlie@email.com",
+                    createdOn: Date.now()
                 }
             ]
-        },
+        }
     ];
     
 })();

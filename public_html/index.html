@@ -19,7 +19,7 @@
             <div class="row">
                 <h1 class="text-center" store-title></h1>
                 <div ng-repeat="product in gemStore.products | orderBy:'-price'">
-                    <div class="col-xs-6 col-xs-offset-3">
+                    <div class="col-xs-8 col-xs-offset-2">
                         <div class="row">
                             <product-title></product-title>
                             <button ng-show="product.canPurchase">Add to Basket</button>
@@ -35,49 +35,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <section ng-controller="PanelController as panel">
-                                <ul class="nav nav-pills">
-                                    <li ng-class="{ active : panel.isSelected(1) }">
-                                        <a href ng-click="panel.selectTab(1)">Description</a>
-                                    </li>
-                                    <li ng-class="{ active : panel.isSelected(2) }">
-                                        <a href ng-click="panel.selectTab(2)">Specification</a>
-                                    </li>
-                                    <li ng-class="{ active : panel.isSelected(3) }">
-                                        <a href ng-click="panel.selectTab(3)">Reviews</a>
-                                    </li>
-                                </ul>
-                                <div class="panel" ng-show="panel.isSelected(1)">
-                                    <h4>Description</h4>
-                                    <p class="text-center">{{product.description | limitTo:10}}</p>
-                                </div>
-                                <div class="panel" ng-show="panel.isSelected(2)">
-                                    <h4>Specification</h4>
-                                    <blockquote>Sides: {{product.sides}}</blockquote>
-                                </div>
-                                <div class="panel" ng-show="panel.isSelected(3)">
-                                    <h4>Reviews</h4>
-                                    <blockquote ng-repeat="review in product.reviews">
-                                        <b>Stars: {{review.stars}}</b>
-                                        {{review.body}}
-                                        <cite>by {{review.author}} on {{review.createdOn | date}}</cite>
-                                    </blockquote>
-                                    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-                                        <blockquote>
-                                            <b>Stars: {{reviewCtrl.review.stars}}</b>
-                                            {{reviewCtrl.review.body}}
-                                            <cite>by {{reviewCtrl.review.author}}</cite>
-                                        </blockquote>
-                                        <select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
-                                            <option value="">Rate the Gem</option>
-                                        </select>
-                                        <textarea class="form-control" ng-model="reviewCtrl.review.body" placeholder="Write a short review of this gem..." required></textarea>
-                                        <label>by:</label>
-                                        <input class="form-control" type="email" ng-model="reviewCtrl.review.author" placeholder="person@email.com" required />
-                                        <input class="btn btn-block" type="submit" value="Submit" />
-                                    </form>
-                                </div>
-                            </section>
+                            <product-panels ng-controller="PanelController as panel"></product-panels>
                             <hr />
                         </div>
                     </div>
